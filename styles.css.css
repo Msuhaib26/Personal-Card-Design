@@ -1,0 +1,211 @@
+ :root {
+   --bg: hsl(220 25% 97%);
+   --card: hsla(221, 23%, 86%, 0.619);
+   --text: hsl(222 22% 12%);
+   --muted: hsl(222 12% 45%);
+   --primary: hsl(262, 100%, 55%);
+   --primary-ink: white;
+   --ring: hsl(262 83% 58% / 0.6);
+   --border: hsl(220 15% 90%);
+   --shadow: 0 10px 25px hsl(220 40% 2% / 0.15);
+ }
+
+ @media (prefers-color-scheme: dark) {
+   :root {
+     --bg: hsl(222 22% 8%);
+     --card: hsl(222 18% 12%);
+     --text: hsl(0 0% 100%);
+     --muted: hsl(222 10% 74%);
+     --border: hsl(222 14% 20%);
+     --shadow: 0 10px 25px hsl(220 40% 2% / 0.5);
+   }
+ }
+
+ * {
+   box-sizing: border-box;
+ }
+
+ html,
+ body {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+   background: radial-gradient(1200px 800px at 10% -10%, hsl(262 100% 83% / 0.25), transparent),
+     radial-gradient(800px 600px at 110% 10%,
+       hsl(200 100% 80% / 0.2), transparent),
+     var(--bg);
+   color: var(--text);
+ }
+
+ .page {
+   background: hsl(220, 25%, 97%);
+   color: hsl(222 22% 12%);
+   /* height: 1111px; */
+   min-height: 100dvh;
+   display: grid;
+   place-items: center;
+   padding: 24px;
+ }
+
+ .card {
+   background-color: hsla(224.1, 53.1%, 87.5%, 0.11);
+   border: 1px solid;
+   width: 363px;
+   box-shadow: 0 0px 13px black;
+   /* position: relative; */
+   /* width: clamp(280px, 90vw, 380px); */
+   background: whitesmoke;
+  border: 4px solid rgba(28, 28, 180, 0.322);
+   border-radius: 20px;
+   /* box-shadow: var(--shadow); */
+   overflow: hidden;
+   height: 510px;
+ }
+
+ .card__header {
+   background-color: red;
+   height: 110px;
+   background: linear-gradient(135deg, hsl(262 83% 58%), hsl(200 93% 56%));
+ }
+
+ .card__avatar {
+   /* height: 150px; */
+   --size: 112px;
+   width: var(--size);
+   height: var(--size);
+   border-radius: 50%;
+   border: 6px solid var(--card);
+   border: 6px solid rgba(255, 255, 255, 0.758);
+   box-shadow: 0 6px 16px hsl(220 40% 2% / 0.25);
+   position: absolute;
+   left: 50%;
+   top: 92px;
+   transform: translateX(-50%);
+   object-fit: cover;
+ }
+
+ .card__body {
+   padding: 72px 18px 20px;
+   text-align: center;
+ }
+
+ .card__name {
+   font-size: 1.4rem;
+   line-height: 5.2;
+   margin: 16px 0 -19px;
+   text-align: center;
+ }
+
+ .card__title {
+   font-size: 0.98rem;
+   color: var(--muted);
+   margin: 0 0 7px;
+   text-align: center;
+ }
+
+ .card__bio {
+   font-size: 0.98rem;
+   color: var(--text);
+   margin: 0 auto 14px;
+   max-width: 55ch;
+   text-align: center;
+ }
+
+ .card__tags {
+   list-style: none;
+   display: flex;
+   gap: 8px;
+   flex-wrap: wrap;
+   justify-content: center;
+   padding: 0;
+   margin: 30px 0 14px;
+ }
+
+ .tag {
+   font-size: 0.78rem;
+   padding: 6px 10px;
+   border-radius: 999px;
+   background: hsl(222 12% 95%);
+   border: 1px solid var(--border);
+ }
+
+ @media (prefers-color-scheme: dark) {
+   .tag {
+     background: hsl(222 16% 18%);
+   }
+ }
+
+ .card__actions {
+   display: flex;
+   gap: 10px;
+   justify-content: center;
+   margin: 6px 0 15px;
+ }
+
+ .btn {
+   appearance: none;
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 0.95rem;
+   padding: 10px 14px;
+   border-radius: 12px;
+   border: 1px solid var(--border);
+   background: hsl(262 83% 58%);
+   color: white;
+   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+ }
+
+ .btn--primary {
+   background: hsl(262 83% 58%);
+   color: white;
+   border-color: transparent;
+ }
+
+ .btn:hover {
+   transform: translateY(-1px);
+ }
+
+ .btn:active {
+   transform: translateY(0);
+ }
+
+ .btn:focus-visible {
+   outline: none;
+   box-shadow: 0 0 0 4px var(--ring);
+ }
+
+ .card__social {
+   display: flex;
+   justify-content: center;
+   gap: 14px;
+   margin: 10px 0 4px;
+ }
+
+ .icon-link {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 36px;
+   height: 36px;
+   border-radius: 10px;
+   border: 1px solid var(--border);
+ }
+
+ .icon-link:hover {
+   transform: translateY(-1px);
+ }
+
+ .icon-link:focus-visible {
+   box-shadow: 0 0 0 4px var(--ring);
+   outline: none;
+ }
+
+ /* ========== Motion preferences ========== */
+ @media (prefers-reduced-motion: reduce) {
+   * {
+     transition: none !important;
+   }
+ }
